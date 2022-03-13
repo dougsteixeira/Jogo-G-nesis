@@ -30,11 +30,11 @@ let score = 0;
  let lightColor = (element, Number) => {
      Number = Number * 500;
      setTimeout(() => {
-         element.classlist.add('selected');
+         element.classList.add('selected');
          
      }, Number - 250);
      setTimeout(() => {
-         element.classlist.remove('selected');
+         element.classList.remove('selected'); 
      });
 
 }
@@ -48,7 +48,7 @@ let checkOrder = () => {
         }
     }
     if(clickedOrder.length == order.length) {
-        alert("Pontuação: ${score}\n Você acertou! Iniciando novo nível!")
+        alert(`Pontuação: ${score}\n Você acertou! Iniciando novo nível`)
         nextlevel();
     }
 }
@@ -57,10 +57,10 @@ let checkOrder = () => {
 
 let click = (color) => {
     clickedOrder[clickedOrder.length] = color;
-    createColorElement(color).classlist.add('selected');
+    createColorElement(color).classList.add('selected');
 
     setTimeout(() => {
-        createColorElement(color).classlist.remove('selected');
+        createColorElement(color).classList.remove('selected');
         checkOrder();    
     },250);
 
@@ -86,7 +86,7 @@ let nextlevel = () => {
 
 
 let gameOver = () => {
-    alert("Pontuação: ${score}!\n Você perdeu o jogo!\n Clique em OK para iniciar um novo jogo!");
+    alert(`Pontuação: ${score} !\n Você perdeu o jogo!\n Clique em OK para iniciar um novo jogo!`);
     order = [];
     clickedOrder = [];
 
